@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Piattaforma Automotive</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0; padding: 0;
+      background: #f5f7fa;
+      color: #0A192F;
+    }
+    header {
+      background: #0A192F;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      cursor: pointer;
+    }
+    nav ul li a {
+      color: #64FFDA;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    nav ul li a.active {
+      border-bottom: 2px solid #64FFDA;
+      padding-bottom: 2px;
+    }
+    .user-menu a {
+      color: #64FFDA;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-left: 1rem;
+      cursor: pointer;
+    }
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 2rem;
+      min-height: 300px;
+    }
+    section {
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <ul id="menu">
+      <li><a href="#" data-target="diagnostic" class="active">Diagnostic</a></li>
+      <li><a href="#" data-target="cx-listen-act">CX listen & act</a></li>
+      <li><a href="#" data-target="e-brochure">E-Brochure</a></li>
+      <li><a href="#" data-target="dam">DAM</a></li>
+      <li><a href="#" data-target="tech-bot">Tech BOT</a></li>
+    </ul>
+  </nav>
+  <div class="user-menu">
+    <a href="#" data-target="profile">Profilo</a> | 
+    <a href="#" data-target="settings">Settings</a>
+  </div>
+</header>
+
+<main>
+  <section id="diagnostic" class="active">
+    <h1>Diagnostic</h1>
+    <p>Servizio di analisi dei dati diagnostici delle auto per prevenire guasti e ridurre i costi di garanzia.</p>
+  </section>
+
+  <section id="cx-listen-act">
+    <h1>CX listen & act</h1>
+    <p>Ascolto della voce del cliente per benchmarking e impostare piani di azioni migliorativi e la reputazione.</p>
+  </section>
+
+  <section id="e-brochure">
+    <h1>E-Brochure</h1>
+    <p>App per generare lead qualificati verso i concessionari, facendo conoscere al cliente finale in modo interattivo le caratteristiche dell’auto.</p>
+  </section>
+
+  <section id="dam">
+    <h1>DAM</h1>
+    <p>Distribuzione di materiale marketing e comunicazione dalla casa madre ai network di concessionari/officine.</p>
+  </section>
+
+  <section id="tech-bot">
+    <h1>Tech BOT</h1>
+    <p>Chatbot per la risoluzione di problemi tecnici e di manutenzione dell’auto a supporto delle officine.</p>
+  </section>
+
+  <section id="profile">
+    <h1>Profilo Utente</h1>
+    <p>Gestione dati utente e informazioni personali.</p>
+  </section>
+
+  <section id="settings">
+    <h1>Settings</h1>
+    <p>Configurazioni e preferenze della piattaforma.</p>
+  </section>
+</main>
+
+<script>
+  const menuLinks = document.querySelectorAll('header nav ul li a');
+  const userLinks = document.querySelectorAll('.user-menu a');
+  const allLinks = [...menuLinks, ...userLinks];
+  const sections = document.querySelectorAll('main section');
+
+  function setActiveSection(targetId) {
+    // Nascondi tutte le sezioni
+    sections.forEach(sec => sec.classList.remove('active'));
+    // Mostra la sezione target
+    const target = document.getElementById(targetId);
+    if(target) target.classList.add('active');
+
+    // Aggiorna classe active sul menu
+    allLinks.forEach(link => {
+      if(link.dataset.target === targetId){
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+
+  allLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const targetId = link.dataset.target;
+      setActiveSection(targetId);
+      // Aggiorna URL senza ricaricare (opzionale)
+      history.pushState(null, '', `#${targetId}`);
+    });
+  });
+
+  // Se apro la pagina con hash, apro la sezione giusta
+  window.addEventListener('load', () => {
+    const hash = window.location.hash.replace('#', '');
+    if(hash){
+      setActiveSection(hash);
+    }
+  });
+
+  // Supporta navigazione avanti/indietro del browser
+  window.addEventListener('popstate', () => {
+    const hash = window.location.hash.replace('#', '') || 'diagnostic';
+    setActiveSection(hash);
+  });
+</script>
+
+</body>
+</html>
