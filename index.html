@@ -2,252 +2,226 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Piattaforma Automotive - Sidebar + Grafici</title>
-
-  <!-- Chart.js CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagnostic Analytics Overview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* Reset base */
     * {
-      box-sizing: border-box;
-    }
-    body {
       margin: 0;
-      height: 100vh;
-      display: flex;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #0A192F;
-      background: #f5f7fa;
-      overflow: hidden;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
     }
-    /* Sidebar (header) */
-    header {
-      width: 220px;
-      background: #0A192F;
+
+    body {
+      background-color: #1c1e22;
       color: white;
       display: flex;
-      flex-direction: column;
-      padding: 2rem 1rem;
-      box-sizing: border-box;
-    }
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      flex-grow: 0;
-    }
-    nav ul li a {
-      color: #64FFDA;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      display: block;
-      padding: 0.3rem 0.2rem;
-      border-left: 4px solid transparent;
-      transition: border-color 0.3s ease;
-      cursor: pointer;
-    }
-    nav ul li a.active {
-      border-left: 4px solid #64FFDA;
-      background-color: rgba(100, 255, 218, 0.1);
-      border-radius: 2px;
-    }
-    .user-menu {
-      margin-top: auto;
-      font-size: 0.9rem;
-    }
-    .user-menu a {
-      color: #64FFDA;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 0.5rem;
-      cursor: pointer;
-    }
-    .user-menu a.active {
-      font-weight: bold;
-      text-decoration: underline;
+      height: 100vh;
     }
 
-    /* Main content area */
-    main {
-      flex-grow: 1;
-      padding: 2rem;
-      overflow-y: auto;
-      background: #f5f7fa;
-      min-height: 100vh;
+    .sidebar {
+      width: 60px;
+      background-color: #111314;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 20px;
+      gap: 20px;
     }
-    section {
-      display: none;
-      max-width: 800px;
-      margin: 0 auto;
-      background: white;
-      padding: 2rem;
+
+    .sidebar button {
+      background: none;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background-color: #d6ff4c;
+    }
+
+    .main {
+      flex: 1;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 3fr 1fr 1.5fr;
+      gap: 20px;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .search-filter {
+      background-color: #2c2f35;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .search-filter input {
+      width: 100%;
+      padding: 10px;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border: none;
+      outline: none;
     }
-    section.active {
-      display: block;
+
+    .filters {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .filters button {
+      background-color: #f4ff7a;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .panel {
+      background-color: #2c2f35;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .panel table {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .panel td {
+      padding: 6px 0;
+    }
+
+    .frequency-high {
+      background: #ffc6c6;
+      padding: 2px 8px;
+      border-radius: 8px;
+      color: #900;
+    }
+
+    .frequency-medium {
+      background: #ffe9b5;
+      padding: 2px 8px;
+      border-radius: 8px;
+      color: #b97300;
+    }
+
+    .frequency-low {
+      background: #cffff8;
+      padding: 2px 8px;
+      border-radius: 8px;
+      color: #006666;
+    }
+
+    .notif-panel {
+      background-color: #f4ff4c;
+      padding: 20px;
+      border-radius: 10px;
+      color: #111;
+    }
+
+    .chat-panel {
+      background-color: #2c2f35;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 15px;
+    }
+
+    .chat-panel .message {
+      background-color: white;
+      color: black;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 10px 0;
+      max-width: 90%;
+    }
+
+    .chat-panel .user-input {
+      margin-top: auto;
+    }
+
+    .chat-panel input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-
-<header>
-  <nav>
-    <ul id="menu">
-      <li><a href="#" data-target="diagnostic" class="active">Diagnostic</a></li>
-      <li><a href="#" data-target="cx-listen-act">CX listen & act</a></li>
-      <li><a href="#" data-target="e-brochure">E-Brochure</a></li>
-      <li><a href="#" data-target="dam">DAM</a></li>
-      <li><a href="#" data-target="tech-bot">Tech BOT</a></li>
-    </ul>
-  </nav>
-  <div class="user-menu">
-    <a href="#" data-target="profile">Profilo</a>
-    <a href="#" data-target="settings">Settings</a>
+  <div class="sidebar">
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
   </div>
-</header>
+  <div class="main">
+    <div class="content">
+      <h2>Diagnostic Analytics Overview</h2>
+      <div class="search-filter">
+        <input type="text" placeholder="Search for data" />
+        <div class="filters">
+          <button>Last 30 Days</button>
+          <button>All Models</button>
+          <button>All Regions</button>
+        </div>
+      </div>
 
-<main>
-  <section id="diagnostic" class="active">
-    <h1>Diagnostic</h1>
-    <p>Servizio di analisi dei dati diagnostici delle auto per prevenire guasti e ridurre i costi di garanzia.</p>
-    <canvas id="diagnosticChart" width="400" height="200"></canvas>
-  </section>
+      <div class="panel">
+        <h4>Fault Code Analysis</h4>
+        <table>
+          <tr><td>P0300</td><td><span class="frequency-high">High</span></td></tr>
+          <tr><td>P0300</td><td><span class="frequency-medium">Medium</span></td></tr>
+          <tr><td>P0171</td><td><span class="frequency-medium">Medium</span></td></tr>
+          <tr><td>P0401</td><td><span class="frequency-low">Low</span></td></tr>
+          <tr><td>P0420</td><td><span class="frequency-low">Low</span></td></tr>
+        </table>
+      </div>
 
-  <section id="cx-listen-act">
-    <h1>CX listen & act</h1>
-    <p>Ascolto della voce del cliente per benchmarking e impostare piani di azioni migliorativi e la reputazione.</p>
-  </section>
+      <div class="panel">
+        <h4>Average cost per unit</h4>
+        <table>
+          <tr><td>P0300</td><td>$1,500</td></tr>
+          <tr><td>P0300</td><td>$2,000</td></tr>
+          <tr><td>P0171</td><td>$800</td></tr>
+          <tr><td>P0401</td><td>$500</td></tr>
+          <tr><td>P0420</td><td>$300</td></tr>
+        </table>
+      </div>
+    </div>
 
-  <section id="e-brochure">
-    <h1>E-Brochure</h1>
-    <p>App per generare lead qualificati verso i concessionari, facendo conoscere al cliente finale in modo interattivo le caratteristiche dell’auto.</p>
-  </section>
+    <div class="notif-panel">
+      <h4>Notifiche</h4>
+      <p>DTC Attivo - <a href="#">Vedi di più</a></p>
+      <p>Batteria scarica - <a href="#">Vedi di più</a></p>
+    </div>
 
-  <section id="dam">
-    <h1>DAM</h1>
-    <p>Distribuzione di materiale marketing e comunicazione dalla casa madre ai network di concessionari/officine.</p>
-  </section>
-
-  <section id="tech-bot">
-    <h1>Tech BOT</h1>
-    <p>Chatbot per la risoluzione di problemi tecnici e di manutenzione dell’auto a supporto delle officine.</p>
-  </section>
-
-  <section id="profile">
-    <h1>Profilo Utente</h1>
-    <p>Gestione dati utente e informazioni personali.</p>
-  </section>
-
-  <section id="settings">
-    <h1>Settings</h1>
-    <p>Configurazioni e preferenze della piattaforma.</p>
-  </section>
-</main>
-
-<script>
-  const menuLinks = document.querySelectorAll('header nav ul li a');
-  const userLinks = document.querySelectorAll('.user-menu a');
-  const allLinks = [...menuLinks, ...userLinks];
-  const sections = document.querySelectorAll('main section');
-
-  function setActiveSection(targetId) {
-    // Nascondi tutte le sezioni
-    sections.forEach(sec => sec.classList.remove('active'));
-    // Mostra la sezione target
-    const target = document.getElementById(targetId);
-    if(target) target.classList.add('active');
-
-    // Aggiorna classe active sui menu
-    allLinks.forEach(link => {
-      if(link.dataset.target === targetId){
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-  }
-
-  allLinks.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const targetId = link.dataset.target;
-      setActiveSection(targetId);
-      // Aggiorna URL con hash (senza ricaricare)
-      history.pushState(null, '', `#${targetId}`);
-    });
-  });
-
-  // Al caricamento pagina, mostra la sezione da hash (se presente)
-  window.addEventListener('load', () => {
-    const hash = window.location.hash.replace('#', '');
-    if(hash && document.getElementById(hash)){
-      setActiveSection(hash);
-    }
-  });
-
-  // Gestione navigazione avanti/indietro
-  window.addEventListener('popstate', () => {
-    const hash = window.location.hash.replace('#', '') || 'diagnostic';
-    setActiveSection(hash);
-  });
-
-  // ----------- Inizializza Chart.js nella sezione Diagnostic -----------
-
-  function initDiagnosticChart() {
-    const ctx = document.getElementById('diagnosticChart').getContext('2d');
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu'],
-        datasets: [{
-          label: 'Costi Garanzia (€)',
-          data: [1200, 1900, 800, 1500, 700, 1300],
-          backgroundColor: '#64FFDA',
-          borderRadius: 4,
-          barPercentage: 0.6,
-        }]
-      },
-      options: {
-        responsive: true,
-        scales: {
-          y: {
-            beginAtZero: true,
-            ticks: {
-              callback: val => '€' + val,
-            },
-            grid: {
-              color: '#ddd'
-            }
-          },
-          x: {
-            grid: {
-              display: false
-            }
-          }
-        },
-        plugins: {
-          legend: {
-            labels: {
-              color: '#0A192F',
-              font: { weight: '600' }
-            }
-          }
-        }
-      }
-    });
-  }
-
-  window.addEventListener('load', () => {
-    initDiagnosticChart();
-  });
-</script>
-
+    <div class="chat-panel">
+      <div>
+        <h4>Tech BOT</h4>
+        <p>Lunedì 15 Maggio</p>
+        <div class="message">
+          Qual è il tempo di ricarica?
+        </div>
+        <div class="message">
+          La ricarica ultrarapida porta la batteria dal 10% all'80% in soli 18 minuti.
+          <button>Aprofondisci</button>
+        </div>
+        <div class="message">
+          Vuoi essere contattato da un agente di vendita? Scrivi il tuo numero nella chat...
+        </div>
+      </div>
+      <div class="user-input">
+        <input type="text" placeholder="Scrivi un messaggio..." />
+      </div>
+    </div>
+  </div>
 </body>
 </html>
