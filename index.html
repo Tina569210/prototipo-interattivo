@@ -1,227 +1,425 @@
-<!DOCTYPE html>
-<html lang="it">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diagnostic Analytics Overview</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      background-color: #1c1e22;
-      color: white;
-      display: flex;
-      height: 100vh;
-    }
-
-    .sidebar {
-      width: 60px;
-      background-color: #111314;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 20px;
-      gap: 20px;
-    }
-
-    .sidebar button {
-      background: none;
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background-color: #d6ff4c;
-    }
-
-    .main {
-      flex: 1;
-      padding: 20px;
-      display: grid;
-      grid-template-columns: 3fr 1fr 1.5fr;
-      gap: 20px;
-    }
-
-    .content {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .search-filter {
-      background-color: #2c2f35;
-      padding: 10px;
-      border-radius: 10px;
-    }
-
-    .search-filter input {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      border: none;
-      outline: none;
-    }
-
-    .filters {
-      margin-top: 10px;
-      display: flex;
-      gap: 10px;
-    }
-
-    .filters button {
-      background-color: #f4ff7a;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    .panel {
-      background-color: #2c2f35;
-      padding: 15px;
-      border-radius: 10px;
-    }
-
-    .panel table {
-      width: 100%;
-      margin-top: 10px;
-    }
-
-    .panel td {
-      padding: 6px 0;
-    }
-
-    .frequency-high {
-      background: #ffc6c6;
-      padding: 2px 8px;
-      border-radius: 8px;
-      color: #900;
-    }
-
-    .frequency-medium {
-      background: #ffe9b5;
-      padding: 2px 8px;
-      border-radius: 8px;
-      color: #b97300;
-    }
-
-    .frequency-low {
-      background: #cffff8;
-      padding: 2px 8px;
-      border-radius: 8px;
-      color: #006666;
-    }
-
-    .notif-panel {
-      background-color: #f4ff4c;
-      padding: 20px;
-      border-radius: 10px;
-      color: #111;
-    }
-
-    .chat-panel {
-      background-color: #2c2f35;
-      border-radius: 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 15px;
-    }
-
-    .chat-panel .message {
-      background-color: white;
-      color: black;
-      border-radius: 10px;
-      padding: 10px;
-      margin: 10px 0;
-      max-width: 90%;
-    }
-
-    .chat-panel .user-input {
-      margin-top: auto;
-    }
-
-    .chat-panel input {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      border: none;
-      margin-top: 10px;
-    }
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
   </style>
 </head>
 <body>
-  <div class="sidebar">
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-  </div>
-  <div class="main">
-    <div class="content">
-      <h2>Diagnostic Analytics Overview</h2>
-      <div class="search-filter">
-        <input type="text" placeholder="Search for data" />
-        <div class="filters">
-          <button>Last 30 Days</button>
-          <button>All Models</button>
-          <button>All Regions</button>
-        </div>
-      </div>
-
-      <div class="panel">
-        <h4>Fault Code Analysis</h4>
-        <table>
-          <tr><td>P0300</td><td><span class="frequency-high">High</span></td></tr>
-          <tr><td>P0300</td><td><span class="frequency-medium">Medium</span></td></tr>
-          <tr><td>P0171</td><td><span class="frequency-medium">Medium</span></td></tr>
-          <tr><td>P0401</td><td><span class="frequency-low">Low</span></td></tr>
-          <tr><td>P0420</td><td><span class="frequency-low">Low</span></td></tr>
-        </table>
-      </div>
-
-      <div class="panel">
-        <h4>Average cost per unit</h4>
-        <table>
-          <tr><td>P0300</td><td>$1,500</td></tr>
-          <tr><td>P0300</td><td>$2,000</td></tr>
-          <tr><td>P0171</td><td>$800</td></tr>
-          <tr><td>P0401</td><td>$500</td></tr>
-          <tr><td>P0420</td><td>$300</td></tr>
-        </table>
-      </div>
-    </div>
-
-    <div class="notif-panel">
-      <h4>Notifiche</h4>
-      <p>DTC Attivo - <a href="#">Vedi di più</a></p>
-      <p>Batteria scarica - <a href="#">Vedi di più</a></p>
-    </div>
-
-    <div class="chat-panel">
-      <div>
-        <h4>Tech BOT</h4>
-        <p>Lunedì 15 Maggio</p>
-        <div class="message">
-          Qual è il tempo di ricarica?
-        </div>
-        <div class="message">
-          La ricarica ultrarapida porta la batteria dal 10% all'80% in soli 18 minuti.
-          <button>Aprofondisci</button>
-        </div>
-        <div class="message">
-          Vuoi essere contattato da un agente di vendita? Scrivi il tuo numero nella chat...
-        </div>
-      </div>
-      <div class="user-input">
-        <input type="text" placeholder="Scrivi un messaggio..." />
-      </div>
-    </div>
-  </div>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">&lt;meta charset="UTF-8" /&gt;</p>
+<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</p>
+<p class="p1">&lt;title&gt;BloodWise — Redesign Preview&lt;/title&gt;</p>
+<p class="p1">&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", system-ui, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>-webkit-font-smoothing: antialiased;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.tabular { font-variant-numeric: tabular-nums; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.no-scrollbar::-webkit-scrollbar { display: none; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.no-scrollbar { scrollbar-width: none; }</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="bg-slate-200 min-h-screen"&gt;</p>
+<p class="p1">&lt;div id="root"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script type="text/babel"&gt;</p>
+<p class="p1">const { useState } = React;</p>
+<p class="p2"><br></p>
+<p class="p1">const SEVERITY = {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ok:<span class="Apple-converted-space">      </span>{ label: 'Within range',<span class="Apple-converted-space">                </span>pillBg: 'bg-emerald-50', pillText: 'text-emerald-700', dot: 'bg-emerald-500', stroke: '#10b981' },</p>
+<p class="p1"><span class="Apple-converted-space">  </span>mild:<span class="Apple-converted-space">    </span>{ label: 'Just outside range',<span class="Apple-converted-space">          </span>pillBg: 'bg-amber-50', <span class="Apple-converted-space">  </span>pillText: 'text-amber-800', <span class="Apple-converted-space">  </span>dot: 'bg-amber-500', <span class="Apple-converted-space">  </span>stroke: '#d97706' },</p>
+<p class="p1"><span class="Apple-converted-space">  </span>notable: { label: 'Outside range', <span class="Apple-converted-space">              </span>pillBg: 'bg-orange-50',<span class="Apple-converted-space">  </span>pillText: 'text-orange-800',<span class="Apple-converted-space">  </span>dot: 'bg-orange-500',<span class="Apple-converted-space">  </span>stroke: '#ea580c' },</p>
+<p class="p1"><span class="Apple-converted-space">  </span>severe:<span class="Apple-converted-space">  </span>{ label: 'Significantly outside range', pillBg: 'bg-red-50', <span class="Apple-converted-space">    </span>pillText: 'text-red-700', <span class="Apple-converted-space">    </span>dot: 'bg-red-500', <span class="Apple-converted-space">    </span>stroke: '#dc2626' },</p>
+<p class="p1"><span class="Apple-converted-space">  </span>unknown: { label: 'New — no comparison yet', <span class="Apple-converted-space">    </span>pillBg: 'bg-slate-100',<span class="Apple-converted-space">  </span>pillText: 'text-slate-600', <span class="Apple-converted-space">  </span>dot: 'bg-slate-400', <span class="Apple-converted-space">  </span>stroke: '#94a3b8' },</p>
+<p class="p1">};</p>
+<p class="p2"><br></p>
+<p class="p1">function StatusPill({ severity, qualifier }) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const s = SEVERITY[severity];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return (</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium ${s.pillBg} ${s.pillText} whitespace-nowrap`}&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span className={`w-1.5 h-1.5 rounded-full ${s.dot}`}&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{s.label}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{qualifier &amp;&amp; &lt;span className="font-normal opacity-75"&gt; · {qualifier}&lt;/span&gt;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// Maps a value to a 0-100% position on a 5-zone severity bar</p>
+<p class="p1">// (15% severe-low | 10% mild-low | 50% in-range | 10% mild-high | 15% severe-high)</p>
+<p class="p1">function getDotPosition(value, low, high) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const range = high - low;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (value &lt;= low) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const u = (low - value) / range;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (u &lt; 0.25) return 25 - (u / 0.25) * 10;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (u &lt; 1.0)<span class="Apple-converted-space">  </span>return 15 - ((u - 0.25) / 0.75) * 13;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return 2;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (value &lt;= high) return 25 + ((value - low) / range) * 50;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const o = (value - high) / range;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (o &lt; 0.25) return 75 + (o / 0.25) * 10;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (o &lt; 1.0)<span class="Apple-converted-space">  </span>return 85 + ((o - 0.25) / 0.75) * 13;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return 98;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function RangeStrip({ value, low, high, severity }) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const pct = getDotPosition(value, low, high);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return (</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div className="relative pt-3 pb-5 mt-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="flex h-2 rounded-full overflow-hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="bg-red-100" <span class="Apple-converted-space">    </span>style={{ width: '15%' }}&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="bg-amber-100" <span class="Apple-converted-space">  </span>style={{ width: '10%' }}&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="bg-emerald-100" style={{ width: '50%' }}&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="bg-amber-100" <span class="Apple-converted-space">  </span>style={{ width: '10%' }}&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="bg-red-100" <span class="Apple-converted-space">    </span>style={{ width: '15%' }}&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="absolute top-[10px] -translate-x-1/2" style={{ left: `${pct}%` }}&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className={`w-3.5 h-3.5 rounded-full border-[2.5px] border-white shadow-md ${SEVERITY[severity].dot}`}&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="absolute bottom-0 left-0 right-0 text-[10px] text-slate-400 font-medium tabular h-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span className="absolute -translate-x-1/2" style={{ left: '25%' }}&gt;{low}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span className="absolute -translate-x-1/2" style={{ left: '75%' }}&gt;{high}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function Sparkline({ points, stroke }) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (!points || points.length &lt; 2) return null;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const min = Math.min(...points);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const max = Math.max(...points);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const r = max - min || 1;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const w = 72, h = 22;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const path = points.map((p, i) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const x = (i / (points.length - 1)) * w;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const y = h - ((p - min) / r) * h;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return `${i === 0 ? 'M' : 'L'} ${x.toFixed(1)} ${y.toFixed(1)}`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}).join(' ');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const lastX = w;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const lastY = h - ((points[points.length - 1] - min) / r) * h;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return (</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;svg width={w} height={h} className="overflow-visible flex-shrink-0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;path d={path} fill="none" stroke={stroke} strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;circle cx={lastX} cy={lastY} r="2.25" fill={stroke} /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// Arrow direction always matches the actual numeric change.</p>
+<p class="p1">// Color reflects "toward-healthy" (good) vs "away-from-healthy" (bad).</p>
+<p class="p1">function TrendRow({ delta, unit, sinceDate, sparklinePoints, trendDirection, trendSeverity }) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const arrow = trendDirection === 'up' ? '↑' : trendDirection === 'down' ? '↓' : '→';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const colorClass =</p>
+<p class="p1"><span class="Apple-converted-space">    </span>trendSeverity === 'good' ? 'text-emerald-600' :</p>
+<p class="p1"><span class="Apple-converted-space">    </span>trendSeverity === 'bad'<span class="Apple-converted-space">  </span>? 'text-orange-600'<span class="Apple-converted-space">  </span>:</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>'text-slate-500';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const stroke =</p>
+<p class="p1"><span class="Apple-converted-space">    </span>trendSeverity === 'good' ? '#10b981' :</p>
+<p class="p1"><span class="Apple-converted-space">    </span>trendSeverity === 'bad'<span class="Apple-converted-space">  </span>? '#ea580c' :</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>'#94a3b8';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return (</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div className="flex items-center justify-between gap-3 py-3 border-t border-slate-100 mt-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="flex items-baseline gap-1.5 text-xs"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span className={`font-semibold ${colorClass} text-[13px] tabular`}&gt;{arrow} {Math.abs(delta)} {unit}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span className="text-slate-400"&gt;since {sinceDate}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;Sparkline points={sparklinePoints} stroke={stroke} /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function ValueCard({ marker, compact = false }) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const { name, value, unit, severity, range, rangeQualifier, explanation, trend } = marker;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return (</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div className="bg-white rounded-2xl border border-slate-200/70 p-5 shadow-[0_1px_3px_rgba(15,23,42,0.04)]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="flex items-start justify-between gap-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3 className="text-[15px] font-semibold text-slate-900 leading-tight pt-1"&gt;{name}&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;StatusPill severity={severity} qualifier={rangeQualifier} /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="flex items-baseline gap-1.5 mt-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span className="text-[28px] font-semibold text-slate-900 tabular leading-none"&gt;{value}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span className="text-sm text-slate-500"&gt;{unit}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="text-[11px] text-slate-500 mt-1.5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Range applied: &lt;span className="text-slate-700 font-medium tabular"&gt;{range[0]}–{range[1]} {unit}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button className="ml-1.5 text-blue-600 font-medium hover:underline"&gt;Why this range?&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;RangeStrip value={value} low={range[0]} high={range[1]} severity={severity} /&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>{trend &amp;&amp; &lt;TrendRow {...trend} unit={unit} /&gt;}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>{!compact &amp;&amp; explanation &amp;&amp; (</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p className="text-[13.5px] text-slate-600 leading-relaxed mt-3"&gt;{explanation}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>)}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>{!compact &amp;&amp; (</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="flex items-stretch gap-0 mt-4 pt-3 border-t border-slate-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button className="flex-1 text-[11.5px] font-medium text-slate-700 hover:bg-slate-50 py-2 px-1 rounded-lg leading-tight"&gt;Save question&lt;br/&gt;for my doctor&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span className="self-stretch w-px bg-slate-200 mx-1"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button className="flex-1 text-[11.5px] font-medium text-slate-700 hover:bg-slate-50 py-2 px-1 rounded-lg leading-tight"&gt;View&lt;br/&gt;over time&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span className="self-stretch w-px bg-slate-200 mx-1"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button className="flex-1 text-[11.5px] font-medium text-slate-700 hover:bg-slate-50 py-2 px-1 rounded-lg leading-tight"&gt;Learn&lt;br/&gt;more&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// ===== Realistic data =====</p>
+<p class="p1">// Profile: adult woman. Notice hemoglobin 13.2 is now correctly Within range</p>
+<p class="p1">// (the original prototype labeled this "Low" because it used the male range).</p>
+<p class="p2"><br></p>
+<p class="p1">const MARKERS = {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>hemoglobin: {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>name: 'Hemoglobin', value: 13.2, unit: 'g/dL', severity: 'ok',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>range: [12.0, 15.5], rangeQualifier: 'adult women',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>explanation: 'Comfortably within the typical range for adult women. Hemoglobin is the protein that carries oxygen through your blood.',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>trend: { delta: 0.7, sinceDate: 'Jan 12', sparklinePoints: [12.5, 12.9, 13.2], trendDirection: 'up', trendSeverity: 'good' },</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>wbc: {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>name: 'White Blood Cells', value: 8.5, unit: '×10³/µL', severity: 'ok',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>range: [4, 11], rangeQualifier: 'adult women',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>explanation: 'In the middle of the typical range — these are the cells that help fight infection.',</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>rbc: {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>name: 'Red Blood Cells', value: 4.6, unit: '×10⁶/µL', severity: 'ok',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>range: [4.2, 5.4], rangeQualifier: 'adult women',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>explanation: 'Within the typical range. Red blood cells carry oxygen from your lungs to the rest of your body.',</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>platelets: {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>name: 'Platelets', value: 425, unit: '×10³/µL', severity: 'mild',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>range: [150, 400], rangeQualifier: 'adult women',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>explanation: 'A small amount above the typical range. This is common and often related to recent illness, exercise, or being slightly dehydrated. Worth bringing up at your next visit. Not an emergency.',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>trend: { delta: 32, sinceDate: 'Jan 12', sparklinePoints: [378, 393, 425], trendDirection: 'up', trendSeverity: 'bad' },</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>hematocrit: {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>name: 'Hematocrit', value: 41, unit: '%', severity: 'ok',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>range: [37, 46], rangeQualifier: 'adult women',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>explanation: 'Within the typical range. Measures the share of your blood made up of red blood cells.',</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>mcv: {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>name: 'MCV', value: 92, unit: 'fL', severity: 'ok',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>range: [80, 100], rangeQualifier: 'adult women',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>explanation: 'Within range. MCV reflects the average size of your red blood cells.',</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1">};</p>
+<p class="p2"><br></p>
+<p class="p1">// ===== Screens =====</p>
+<p class="p2"><br></p>
+<p class="p1">function HomeScreen({ onOpenTest }) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return (</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div className="bg-slate-50 min-h-full"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="px-5 pt-6 pb-2 flex items-center justify-between"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div className="text-[11px] text-slate-500 font-medium uppercase tracking-wider"&gt;Home&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h1 className="text-[22px] font-semibold text-slate-900 mt-0.5"&gt;Hi, Martina&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="flex items-center gap-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-700"&gt;&lt;circle cx="11" cy="11" r="8"/&gt;&lt;path d="m21 21-4.3-4.3"/&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-700"&gt;&lt;path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/&gt;&lt;path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="px-5 pb-32 space-y-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section className="bg-white rounded-2xl border border-slate-200/70 p-5 shadow-[0_1px_3px_rgba(15,23,42,0.04)]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div className="text-[11px] font-medium text-slate-500 uppercase tracking-wider"&gt;From your latest test · Apr 15&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p className="mt-2 text-[15px] text-slate-800 leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span className="font-semibold text-slate-900"&gt;Most values look normal.&lt;/span&gt; 1 is just above your typical range.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div className="flex items-center gap-2 mt-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-amber-50 text-amber-800"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span className="w-1.5 h-1.5 rounded-full bg-amber-500"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Platelets — just above range</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button onClick={onOpenTest} className="mt-4 inline-flex items-center gap-1 text-[13px] font-semibold text-blue-600 hover:underline"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>View detailed results</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"&gt;&lt;polyline points="9 18 15 12 9 6"&gt;&lt;/polyline&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div className="flex items-center justify-between mb-2.5 px-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 className="text-[15px] font-semibold text-slate-900"&gt;What's changed&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button className="text-[12.5px] font-medium text-blue-600"&gt;View all&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div className="space-y-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;ValueCard marker={MARKERS.platelets} compact /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;ValueCard marker={MARKERS.hemoglobin} compact /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p className="text-[11px] text-slate-400 mt-3 px-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Showing markers with a meaningful change since your last test.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h2 className="text-[15px] font-semibold text-slate-900 mb-2.5 px-1"&gt;Recent results&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div className="bg-white rounded-2xl border border-slate-200/70 divide-y divide-slate-100 overflow-hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onClick={onOpenTest} className="w-full flex items-center justify-between p-4 hover:bg-slate-50 text-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div className="text-[14px] font-semibold text-slate-900"&gt;Complete Blood Count&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div className="text-[12px] text-slate-500 mt-0.5"&gt;Apr 15, 2026 · 5 normal · 1 just outside range&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-400"&gt;&lt;polyline points="9 18 15 12 9 6"&gt;&lt;/polyline&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button className="w-full flex items-center justify-between p-4 hover:bg-slate-50 text-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div className="text-[14px] font-semibold text-slate-900"&gt;Lipid Panel&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div className="text-[12px] text-slate-500 mt-0.5"&gt;Mar 20, 2026 · 4 normal&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-400"&gt;&lt;polyline points="9 18 15 12 9 6"&gt;&lt;/polyline&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button className="w-full flex items-center justify-between p-4 hover:bg-slate-50 text-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div className="text-[14px] font-semibold text-slate-900"&gt;Comprehensive Metabolic Panel&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div className="text-[12px] text-slate-500 mt-0.5"&gt;Jan 12, 2026 · 13 normal · 1 just outside range&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-400"&gt;&lt;polyline points="9 18 15 12 9 6"&gt;&lt;/polyline&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function DetailScreen({ onBack }) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return (</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div className="bg-slate-50 min-h-full"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="px-5 pt-5 pb-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onClick={onBack} className="w-9 h-9 -ml-2 flex items-center justify-center rounded-full hover:bg-slate-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" className="text-slate-700"&gt;&lt;polyline points="15 18 9 12 15 6"&gt;&lt;/polyline&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="px-5 pb-32"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1 className="text-[22px] font-semibold text-slate-900"&gt;Complete Blood Count&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="text-[13px] text-slate-500 mt-1"&gt;Apr 15, 2026 · 6 markers&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="mt-5 flex gap-2.5 p-3.5 rounded-xl bg-blue-50/60 border border-blue-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600 flex-shrink-0 mt-0.5"&gt;&lt;circle cx="12" cy="12" r="10"/&gt;&lt;line x1="12" y1="16" x2="12" y2="12"/&gt;&lt;line x1="12" y1="8" x2="12.01" y2="8"/&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p className="text-[12.5px] text-blue-900 leading-snug"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>BloodWise explains results — it doesn't diagnose or replace your doctor.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section className="mt-5 bg-white rounded-2xl border border-slate-200/70 p-5 shadow-[0_1px_3px_rgba(15,23,42,0.04)]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h2 className="text-[15px] font-semibold text-slate-900"&gt;In plain English&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p className="mt-1.5 text-[14px] text-slate-700 leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Most values look normal. &lt;span className="font-medium text-slate-900"&gt;1 is just above your typical range:&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium bg-amber-50 text-amber-800 hover:bg-amber-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span className="w-1.5 h-1.5 rounded-full bg-amber-500"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Platelets — just above range</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"&gt;&lt;polyline points="6 9 12 15 18 9"&gt;&lt;/polyline&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="mt-5 space-y-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;ValueCard marker={MARKERS.hemoglobin} /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;ValueCard marker={MARKERS.platelets} /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;ValueCard marker={MARKERS.wbc} /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;ValueCard marker={MARKERS.rbc} /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;ValueCard marker={MARKERS.hematocrit} /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;ValueCard marker={MARKERS.mcv} /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="mt-6 bg-slate-900 rounded-2xl p-5 text-white shadow-md"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div className="flex items-start gap-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"&gt;&lt;path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/&gt;&lt;polyline points="14 2 14 8 20 8"/&gt;&lt;line x1="16" y1="13" x2="8" y2="13"/&gt;&lt;line x1="16" y1="17" x2="8" y2="17"/&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div className="flex-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3 className="text-[15px] font-semibold"&gt;Save these for your next visit&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p className="text-[12.5px] text-white/70 mt-1 leading-relaxed"&gt;A 1-page summary you can share with your doctor — outliers, trends, and your saved questions.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button className="mt-4 w-full bg-white text-slate-900 font-semibold text-[14px] py-3 rounded-xl hover:bg-slate-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Generate visit summary</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function BottomNav({ active, onChange }) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const tabs = [</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{ id: 'home',<span class="Apple-converted-space">    </span>label: 'Home',<span class="Apple-converted-space">    </span>icon: &lt;svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"&gt;&lt;path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/&gt;&lt;polyline points="9 22 9 12 15 12 15 22"/&gt;&lt;/svg&gt; },</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{ id: 'results', label: 'Results', icon: &lt;svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"&gt;&lt;path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/&gt;&lt;polyline points="14 2 14 8 20 8"/&gt;&lt;/svg&gt; },</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{ id: 'profile', label: 'Profile', icon: &lt;svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"&gt;&lt;path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/&gt;&lt;circle cx="12" cy="7" r="4"/&gt;&lt;/svg&gt; },</p>
+<p class="p1"><span class="Apple-converted-space">  </span>];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return (</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-slate-200 px-2 pt-2 pb-6 flex"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{tabs.map(t =&gt; (</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button</p>
+<p class="p1"><span class="Apple-converted-space">          </span>key={t.id}</p>
+<p class="p1"><span class="Apple-converted-space">          </span>onClick={() =&gt; onChange(t.id)}</p>
+<p class="p1"><span class="Apple-converted-space">          </span>className={`flex-1 flex flex-col items-center gap-0.5 py-1.5 ${active === t.id ? 'text-blue-600' : 'text-slate-500'}`}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>{t.icon}</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span className="text-[10.5px] font-medium"&gt;{t.label}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>))}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function App() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const [screen, setScreen] = useState('home');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>return (</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div className="min-h-screen flex items-start justify-center py-4 sm:py-10 px-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="w-full max-w-[412px]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="mb-4 flex justify-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div className="inline-flex bg-slate-300/80 rounded-full p-1 text-[12px] font-medium"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onClick={() =&gt; setScreen('home')} <span class="Apple-converted-space">  </span>className={`px-4 py-1.5 rounded-full transition ${screen === 'home' <span class="Apple-converted-space">  </span>? 'bg-white text-slate-900 shadow' : 'text-slate-700'}`}&gt;Dashboard&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onClick={() =&gt; setScreen('detail')} className={`px-4 py-1.5 rounded-full transition ${screen === 'detail' ? 'bg-white text-slate-900 shadow' : 'text-slate-700'}`}&gt;Analysis Detail&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="relative bg-slate-50 rounded-[2.25rem] overflow-hidden shadow-[0_25px_60px_-15px_rgba(15,23,42,0.25)] border border-slate-300/60" style={{ height: '844px' }}&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div className="absolute inset-0 overflow-y-auto no-scrollbar pb-20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{screen === 'home' <span class="Apple-converted-space">  </span>&amp;&amp; &lt;HomeScreen <span class="Apple-converted-space">  </span>onOpenTest={() =&gt; setScreen('detail')} /&gt;}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{screen === 'detail' &amp;&amp; &lt;DetailScreen onBack={() =&gt; setScreen('home')} /&gt;}</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;BottomNav</p>
+<p class="p1"><span class="Apple-converted-space">            </span>active={screen === 'home' ? 'home' : 'results'}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>onChange={(id) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">              </span>if (id === 'home') setScreen('home');</p>
+<p class="p1"><span class="Apple-converted-space">              </span>if (id === 'results') setScreen('detail');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}}</p>
+<p class="p1"><span class="Apple-converted-space">          </span>/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p className="text-center text-[11px] text-slate-500 mt-4"&gt;BloodWise — Redesign Preview&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">ReactDOM.createRoot(document.getElementById('root')).render(&lt;App /&gt;);</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
 </body>
 </html>
